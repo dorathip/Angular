@@ -1,0 +1,29 @@
+<table>
+    <thead>
+    <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Designation</th>
+        <th>Credits</th>
+        <th>Promotion Eligibility</th>
+        
+    </tr>
+    </thead>  
+    <tr *ngFor="let tempData of employeeData">
+        <td>{{tempData.employeeID}}</td>
+        <td>{{tempData.name}}</td>
+        <td>{{tempData.salary | currency:'USD'}}</td>
+        <td>{{tempData.designation}}</td>
+        <td>{{tempData.credits}}</td>
+     
+
+        <td ><div *ngIf="tempData.salary > 9000 && tempData.credits >5; else elseBlock">
+              YES
+            </div>
+            <ng-template #elseBlock>No</ng-template>
+        </td>
+
+    </tr>
+    
+</table>
